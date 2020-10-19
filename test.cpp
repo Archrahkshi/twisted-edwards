@@ -2,17 +2,16 @@
 
 
 namespace NTL {
-    void checkIfOnCurve(const Point &P) {
-        ZZ X2 = PowerMod(P.X, 2, p);
-        ZZ Y2 = PowerMod(P.Y, 2, p);
+    void checkIfOnCurve(const Point &kP) {
+        ZZ X2 = PowerMod(kP.X, 2, p);
+        ZZ Y2 = PowerMod(kP.Y, 2, p);
         if (AddMod(MulMod(a, X2, p), Y2, p) == AddMod(1, MulMod(MulMod(d, X2, p), Y2, p), p))
             std::cout << "Test 1: +\n";
         else
             std::cout << "Test 1: -\n";
     }
 
-    void checkIdentity(const Point &P) {
-        Point qP = binaryMethod(P, q);
+    void checkIdentity(const Point &qP) {
         if (qP.X == 0 && qP.Y == 1 && qP.Z == 0)
             std::cout << "Test 2: +\n";
         else

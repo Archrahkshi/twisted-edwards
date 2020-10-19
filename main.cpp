@@ -6,8 +6,8 @@ using namespace NTL;
 int main() {
     Point P;
 
-    checkIfOnCurve(P);
-    checkIdentity(P);
+    checkIfOnCurve(binaryMethod(P, RandomBnd(q)));
+    checkIdentity(binaryMethod(P, q));
     checkNeighbors(P);
-    checkLinearity(P, RandomBnd(p), RandomBnd(p));
+    checkLinearity(P, RandomBnd(q), RandomBnd(q));
 }
