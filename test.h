@@ -5,10 +5,10 @@
 
 
 namespace NTL {
-    void checkIfOnCurve(const Point&);
-    void checkIdentity(const Point&);
-    void checkNeighbors(const Point&);
-    void checkLinearity(const Point&, const ZZ&, const ZZ&);
+    void checkIfOnCurve(const Point&); // Тест 1
+    void checkIdentity(const Point&); // Тест 2
+    void checkNeighbors(const Point&); // Тест 3
+    void checkLinearity(const Point&, const ZZ& k1, const ZZ& k2); // Тест 4
 }
 
 #endif //TEST_H
