@@ -3,8 +3,8 @@
 
 namespace NTL {
     void checkIfOnCurve(const Point &kP) { // [k]P
-        ZZ X2 = PowerMod(kP.X, 2, p); // X2=X^2
-        ZZ Y2 = PowerMod(kP.Y, 2, p); // Y2=Y^2
+        ZZ X2 = SqrMod(kP.X, p); // X2=X^2
+        ZZ Y2 = SqrMod(kP.Y, p); // Y2=Y^2
         if (AddMod(MulMod(a, X2, p), Y2, p) == AddMod(1, MulMod(MulMod(d, X2, p), Y2, p), p)) // a*X2+Y2==1+d*X2*Y2
             std::cout << "Test 1: +\n";
         else

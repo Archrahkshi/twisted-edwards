@@ -27,7 +27,7 @@ namespace NTL {
 
         ZZ X3 = MulMod(SubMod(1, E, p), SubMod(SubMod(MulMod(AddMod(X1, Y1, p), AddMod(X2, Y2, p), p), C, p), D, p), p); // (1-E)*((X1+Y1)*(X2+Y2)-C-D)
         ZZ Y3 = MulMod(AddMod(1, E, p), SubMod(D, MulMod(a, C, p), p), p); // (1+E)*(D-a*C)
-        ZZ Z3 = SubMod(1, PowerMod(E, 2, p), p); // 1-E^2
+        ZZ Z3 = SubMod(1, SqrMod(E, p), p); // 1-E^2
 
         return transform(Point(X3, Y3, Z3));
     }
@@ -36,15 +36,15 @@ namespace NTL {
         ZZ X = P.X;
         ZZ Y = P.Y;
 
-        ZZ B = PowerMod(AddMod(X, Y, p), 2, p); // (X+Y)^2
-        ZZ C = PowerMod(X, 2, p); // X^2
-        ZZ D = PowerMod(Y, 2, p); // Y^2
+        ZZ B = SqrMod(AddMod(X, Y, p), p); // (X+Y)^2
+        ZZ C = SqrMod(X, p); // X^2
+        ZZ D = SqrMod(Y, p); // Y^2
         ZZ E = MulMod(a, C, p); // a*C
         ZZ F = AddMod(E, D, p); // E+D
 
         ZZ X3 = MulMod(SubMod(SubMod(B, C, p), D, p), SubMod(F, 2, p), p); // (B-C-D)*(F-2)
         ZZ Y3 = MulMod(F, SubMod(E, D, p), p); // F*(E-D)
-        ZZ Z3 = SubMod(PowerMod(F, 2, p), MulMod(2, F, p), p); // F^2-2*F
+        ZZ Z3 = SubMod(SqrMod(F, p), MulMod(2, F, p), p); // F^2-2*F
 
         return transform(Point(X3, Y3, Z3));
     }
