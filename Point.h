@@ -10,7 +10,8 @@ namespace NTL {
         ZZ X, Y, Z;
 
         Point();
-        Point(ZZ& X, ZZ& Y, ZZ& Z);
+
+        Point(ZZ &X, ZZ &Y, ZZ &Z);
     };
 }
 
